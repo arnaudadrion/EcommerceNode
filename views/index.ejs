@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	
+	<link rel="stylesheet" type="text/css" href="http://localhost:8888/EcommerceNode/ressources/CSS/normalize.css">
+	<link rel="stylesheet" type="text/css" href="http://localhost:8888/EcommerceNode/ressources/CSS/style.css">
+</head>
+<body>
+
+	<div class="retour">
+		<p><a href="../../../">Retour au site principal</a></p>
+	</div>
+
+
+	<header class="clearfix">
+		<div>	
+			<form action="<?=CLIENT_ROOT?>/compte/identification/" method="post">
+				<h3>Identification</h3>
+				<input type="email" name="email" placeholder="e-mail">
+				<input type="password" name="password" placeholder="mot de passe">
+				<input class="submit" type="submit" value="identification">
+			</form>
+			<a href="<?=CLIENT_ROOT?>/compte/creation/">Créer un compte</a>
+			
+		</div>
+
+		<div>
+			<h3>Mon panier</h3>
+			<% if(typeof(user)!='undefined'){ %>
+				<p><%=user['firstName']%> <%=user['lastName']%></p>
+			<% } %>
+			<p>						
+				article(s)				
+			</p>
+			<a href="<?=CLIENT_ROOT?>/panier/detail/">Voir le détail</a>
+			<a class="deco" href="<?=CLIENT_ROOT?>/panier/deconnexion/">Déconnexion</a>
+		</div>
+	</header>
+
+	<section class="clearfix">
+		<aside>
+			<form action="<?=CLIENT_ROOT?>/afficher/recherche/" method="get">
+				<label >Recherche</label>
+				<input type="text" name="recherche">
+				<input class="submit" type="submit" value="chercher">
+			</form>
+
+			<ul><h3>Catégories</h3>
+				<li><a href="http://localhost:8080/">Tous les produits</a></li>
+				<% categories.forEach(function(category, index){%>				
+					<li><a href="http://localhost:8080/categorie/<%=category.id%>/page/1"><%=category.name%>(<%=category.nombre%>)</a></li>	
+				<% }); %>
+			</ul>
+		</aside>
+			
+		<article id="content">
+			<ul class="clearfix">
+			<% articles.forEach(function(article, index){%>
+				<li>
+					<p><%=article.name%><p>
+					<p><a href="./article/<%=article.id%>"><img src="http://localhost:8888/EcommerceNode/ressources/images/<%=article.imagePath%>" alt=""></a></p>
+					<p><%=article.priceTTC%> €</p>
+				</li>
+			<% }); %>
+			</ul>
+
+			<div class="pagination">
+				<!--<?php for ($i=1; $i <=$pagination['lastPage'] ; $i++): ?>
+					<?php if (array_key_exists('id', $_GET)):?>
+						<a href="<?=CLIENT_ROOT?>/afficher/oneCategory/?id=<?=$value['id_category']?>&amp;page=<?=$i?>">Page <?=$i?></a>
+					
+					<?php elseif(array_key_exists('recherche', $_GET)):?>
+						<a href="<?=CLIENT_ROOT?>/afficher/recherche/?recherche=<?=$_GET['recherche']?>&amp;page=<?=$i?>">Page <?=$i?></a>
+					
+					<?php else:?>
+						<a href="<?=CLIENT_ROOT?>/afficher/all/?page=<?=$i?>">Page <?=$i?></a>
+					<?php endif;?>
+				<?php endfor; ?>-->
+		
+					<% for(var i=1; i<=lastPage; i++){ %>
+						<a href="./<%=i%>">Page <%=i%></a>
+					<% } %>
+		
+			</div>
+		</article>
+
+	</section>
+	
+</body>
+</html>

@@ -1,0 +1,234 @@
+html, body {
+	font-size:62.5%;
+	margin: 0px;
+	background-color: #F2F2F2;
+	height: 100%;
+}
+
+* {
+	box-sizing: border-box;    
+    font-size: 1.6rem;
+    line-height: 2rem; 
+    padding: 0px;
+}
+
+.retour{
+	background-color: #6b6a6a;
+	padding: 5px;
+	p{
+		text-align: center;
+		a{
+			text-align: center;
+			color: white;
+		}
+	}
+}
+
+.submit{
+    padding: 3px;
+    color:#636D76;
+}
+
+/*style du header*/
+header{
+	background-color: #EB4A41;
+	width:1080px;
+	margin: auto;
+	border-radius: 10px;
+
+	div{
+		float:left;
+		width: 50%;
+		padding-left: 1%;
+		h3, p, a {
+			color: white;
+		}
+		.deco{
+			padding-left: 10px;
+		}
+	}
+}
+
+/*style de l'affichage des produits*/
+section{
+	width:1080px;
+	margin: auto;
+	height: 100%;
+
+	aside{
+		width:20%;
+		float: left;
+		background-color: #D0D0D0;
+		height: 100%;
+		padding-left: 1%;
+		padding-right: 1%;
+		padding-top: 3%;
+		border-radius: 10px;
+
+		label, h3 {
+			color: white;
+		}
+
+		li {
+			list-style: none;
+			a{
+				color:white;
+				padding:2px;
+			}
+		}
+	}
+
+	article{
+		float:left;
+		width: 80%;
+
+		p, h3{
+			color:#636D76;
+			text-align: center;
+		}
+
+		img{
+			width:100%;
+			padding: 2%;
+		}
+
+		form{
+			text-align: center;
+			label, input{
+				color:#636D76;
+			}
+		}
+
+		ul{
+			list-style: none;
+			
+			li{
+				float:left;
+				width:50%;
+
+				p{
+					color:#636D76;
+					text-align: center;
+				}
+
+				img{
+					width:80%;
+					padding: 2%;
+				}
+			}
+		}
+
+		.pagination{
+			text-align: center;
+			
+			a{
+				color:#636D76;
+				margin: auto;
+				padding: 2px;
+			}
+		}
+	}
+}
+
+/*style de la page détail*/
+table{
+	text-align: center;
+}
+
+th, td{
+	padding: 2%;
+	color:#636D76;
+}
+
+a{
+	color: #636D76;
+}
+
+/*style page creation de customer*/
+.creation {
+	h4{
+		color: #636D76;
+	}
+
+	label{
+		width:30%;
+		float:left;
+	}
+	input, select{
+		width:60%;
+		float:left;
+		padding:1%
+	}
+
+	.valid {
+		width: 30%;
+		margin: auto;
+		float: right;
+		margin-right: 10%;
+	}
+}
+
+
+@media screen and (min-width:480px) and (max-width:720px){
+	header {
+		width:100%;
+	}
+
+	section{
+		width:100%;
+
+		aside{
+			form{
+				input{
+					width:100%;
+				}
+			}
+		}
+
+		article{
+			ul{
+				li{
+					width:100%;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (min-width:720px) and (max-width:1080px){
+	header {
+		width:100%;
+	}
+
+	section{
+		width:100%;
+
+		aside{
+			form{
+				input{
+					width:100%;
+				}
+			}
+		}
+
+		article{
+
+			img{
+				width:80%;
+				padding: 2%;
+			}
+
+			ul{
+				li{
+					width:100%;
+				}
+			}
+		}
+	}
+
+}
+
+
+
+
+

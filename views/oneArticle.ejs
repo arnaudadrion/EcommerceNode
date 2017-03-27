@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	
+	<link rel="stylesheet" type="text/css" href="http://localhost:8888/EcommerceNode/ressources/CSS/normalize.css">
+	<link rel="stylesheet" type="text/css" href="http://localhost:8888/EcommerceNode/ressources/CSS/style.css">
+</head>
+<body>
+
+	<div class="retour">
+		<p><a href="../../../">Retour au site principal</a></p>
+	</div>
+
+
+	<header class="clearfix">
+		<div>	
+			<form action="<?=CLIENT_ROOT?>/compte/identification/" method="post">
+				<h3>Identification</h3>
+				<input type="email" name="email" placeholder="e-mail">
+				<input type="password" name="password" placeholder="mot de passe">
+				<input class="submit" type="submit" value="identification">
+			</form>
+			<a href="<?=CLIENT_ROOT?>/compte/creation/">Créer un compte</a>
+			
+		</div>
+
+		<div>
+			<h3>Mon panier</h3>
+			<% if(typeof(user)!='undefined'){ %>
+				<p><%=user['firstName']%> <%=user['lastName']%></p>
+			<% } %>
+			<p>						
+				article(s)				
+			</p>
+			<a href="<?=CLIENT_ROOT?>/panier/detail/">Voir le détail</a>
+			<a class="deco" href="<?=CLIENT_ROOT?>/panier/deconnexion/">Déconnexion</a>
+		</div>
+	</header>
+
+	<section class="clearfix">
+		<aside>
+			<form action="<?=CLIENT_ROOT?>/afficher/recherche/" method="get">
+				<label >Recherche</label>
+				<input type="text" name="recherche">
+				<input class="submit" type="submit" value="chercher">
+			</form>
+
+			<ul><h3>Catégories</h3>
+				<li><a href="http://localhost:8080/">Tous les produits</a></li>
+				<% categories.forEach(function(category, index){%>				
+					<li><a href="http://localhost:8080/categorie/<%=category.id%>/page/1"><%=category.name%>(<%=category.nombre%>)</a></li>	
+				<% }); %>
+			</ul>
+		</aside>
+			
+		<article id="content">
+			<h3><%=article.name%></h3>
+			<img src="http://localhost:8888/EcommerceNode/ressources/images/<%=article.imagePath%>" alt="">
+			<p><%=article.description%></p>
+			<p><%=article.priceTTC%> €<!-- $ <a href="<?=CLIENT_ROOT?>/panier/ajouter/?id=<?=$product['id']?>">Ajouter au panier</a>--></p>
+			<form action="<?=CLIENT_ROOT?>/panier/ajouter/?id=<?=$product['id']?>" method="post">
+				<label for="">Ajouter au panier</label>
+				<input type="number" name="quantite" value="1" placeholder="quantité">
+				<input type="submit">
+			</form>
+		</article>
+
+	</section>
+	
+</body>
+</html>
